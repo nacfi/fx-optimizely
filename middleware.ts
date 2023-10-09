@@ -57,10 +57,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
     decision.variables.sort_method === 'popular_first' ? '/popular' : '/'
   let res = NextResponse.rewrite(req.nextUrl)
 
-  if (!req.cookies.has(COOKIE_NAME)) {
-    // Saving userId in the cookie so that the decision sticks for subsequent visits.
-    res.cookies.set(COOKIE_NAME, userId)
-  }
+
 
   return res
 }
